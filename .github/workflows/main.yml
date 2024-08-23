@@ -9,11 +9,19 @@ jobs:
   check-biweekly:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if today is biweekly from a given date
+      - name: Check if today is biweekly from 2024-01-01
         uses: RubenDguez/cron-biweekly@v1.0.0
         with:
           reference-date: "2024-01-01"
-        id: check
+        id: check1
+
+      - name: Check if today is biweekly from 2024-01-08
+        uses: RubenDguez/cron-biweekly@v1.0.0
+        with:
+          reference-date: "2024-01-08"
+        id: check2
 
       - name: Output result
-        run: echo "Is today biweekly? ${{ steps.check.outputs.is-biweekly }}"
+        run: |
+          echo "Is today biweekly? ${{ steps.check1.outputs.is-biweekly }}"
+          echo "Is today biweekly? ${{ steps.check2.outputs.is-biweekly }}"
