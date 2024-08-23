@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check if today is biweekly from a given date
-        uses: RubenDguez/cron-biweekly@v1.0.0
+        uses: RubenDguez/cron-biweekly@v1
         with:
           reference-date: "2024-01-01"
         id: check
