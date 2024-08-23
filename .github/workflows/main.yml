@@ -1,0 +1,19 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-biweekly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if today is biweekly from a given date
+        uses: RubenDguez/cron-biweekly@v1
+        with:
+          reference-date: "2024-01-01"
+        id: check
+
+      - name: Output result
+        run: echo "Is today biweekly? ${{ steps.check.outputs.is-biweekly }}"
